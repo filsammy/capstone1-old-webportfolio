@@ -1,0 +1,576 @@
+/*colors*/
+* {
+	font-family: "Poppins", sans-serif;
+}
+
+.l {
+	color: white;
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px  1px 0 #000,
+	1px  1px 0 #000;
+}
+
+.lb {
+	color: #c2a98d;
+}
+
+.latte {
+	color: #f5e6da;
+	-webkit-text-stroke: 1px #0a0a0a; /* Dark brown outline */
+}
+
+.fawn {
+	color: #e5aa70;
+	-webkit-text-stroke: 1px #0a0a0a;
+}
+
+.cafe {
+	color: #bfa48f;
+	-webkit-text-stroke: 1px #0a0a0a;
+}
+
+.cafe1 {
+	color: #3e2723;
+}
+
+/*background*/
+body {
+	background: linear-gradient(
+		to bottom right,
+		#8b6a4f,   /* medium-dark latte brown */
+		#7a5c43,   /* roasted coffee beans */
+		#5c4b3c,   /* mocha brown */
+		#3b3027,   /* rich espresso */
+		#1e1611    /* deep dark roast / black coffee */
+	);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #f3f0eb; /* soft ivory text for contrast */
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 200%;
+	height: 200%;
+	background-image: url("data:image/svg+xml,%3Csvg width='28' height='28' viewBox='0 0 100 100' fill='%23c2a98d' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C43 15 30 15 30 30c0 10 10 10 10 20s-10 10-10 20c0 15 13 15 20 30 7-15 20-15 20-30 0-10-10-10-10-20s10-10 10-20c0-15-13-15-20-30z' opacity='0.1'/%3E%3C/svg%3E");
+
+	background-repeat: repeat;
+	opacity: 0.7;
+	animation: floatRings 90s linear infinite;
+	z-index: -1;
+}
+
+@keyframes floatRings {
+	0% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+	100% {
+		transform: translate(-300px, -200px) rotate(2deg);
+	}
+}
+
+/*Scroll-watcher START*/
+.scroll-watcher {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 8px;
+	width: 100%;
+	background-color: transparent;
+	z-index: 1000;
+	pointer-events: none;
+}
+
+.scroll-watcher::before {
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-color: #0d9488;
+	transform-origin: left;
+	scale: 0 1;
+
+	animation: grow linear;
+	animation-timeline: scroll();
+}
+
+@keyframes grow {
+	from { scale: 0 1; }
+	to { scale: 1 1; }
+}
+/*Scrollwatcher END*/
+
+/*Navbar Start*/
+/* Background and overlay for navbar */
+.navbar-custom-bg {
+	position: relative;
+	background-image: url("./images/wood/12.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: white;
+	z-index: 1;
+	border-bottom: 3px solid #c2a98d;
+}
+
+.navbar-custom-bg::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 0;
+	pointer-events: none;
+}
+
+.navbar-custom-bg .navbar-brand,
+.navbar-custom-bg .nav-link {
+	position: relative;
+	z-index: 1;
+}
+
+/* Nav links */
+.navbar-custom-bg .nav-link {
+	color: #c2a98d !important;
+	font-family: "Poppins", sans-serif;
+	transition: color 0.3s ease;
+}
+
+.navbar-custom-bg .nav-link:hover,
+.navbar-custom-bg .nav-link.active {
+	color: white !important;
+}
+
+/* Brand box */
+.brand-box {
+	font-family: "Poppins", sans-serif;
+	padding: 0.4rem 1rem;
+	border: 2px solid #c2a98d;
+	border-radius: 0.5rem;
+	background-color: rgba(255, 255, 255, 0.05);
+	display: inline-block;
+	transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.brand-box:hover {
+	background-color: rgba(194, 169, 141, 0.15);
+	box-shadow: 0 0 15px rgba(194, 169, 141, 0.7), 0 0 25px rgba(255, 245, 235, 0.5);
+	border-color: #c2a98d;
+}
+
+/* Toggler default state */
+.navbar-toggler {
+	position: relative;
+	z-index: 2;
+	border: 2px solid #c2a98d !important;
+	border-radius: 4px;
+	background-color: transparent;
+	transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Toggler hover */
+.navbar-toggler:hover {
+	background-color: rgba(194, 169, 141, 0.15);
+	box-shadow: 0 0 15px rgba(194, 169, 141, 0.7), 0 0 25px rgba(255, 245, 235, 0.5);
+	border-color: #c2a98d !important;
+}
+
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23c2a98d' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/*Navbar End*/
+
+/*Landing Page START*/
+/*unbothered bg START*/
+
+/*unbothere bg END*/
+
+/*image animation++*/
+.article-header{
+	display: grid;
+	place-items: center;
+	position: relative;
+	height: 100vh;
+	overflow-x: clip;
+	padding: 0;
+	margin: 0; 
+}
+
+.article-header {
+	font-family: 'Poppins', sans-serif;
+}
+
+.header-image {
+	grid-column: 1 / -1;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10%;
+	border: 3px solid #f8f5f2; /* soft ivory for contrast */
+	opacity: 0.6;
+	object-fit: cover;
+	z-index: -1;
+
+	box-shadow:
+	0 0 25px rgba(255, 250, 240, 0.6),
+	inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+	animation: header-image-animation linear forwards;
+	animation-timeline: view();
+	animation-range: exit;
+}
+
+.profile-pic-container {
+	position: relative;
+	width: 350px;
+	height: 350px;
+	border-radius: 50%;
+	overflow: hidden;
+	backdrop-filter: blur(8px); /* Applies the blur to background behind */
+	-webkit-backdrop-filter: blur(8px); /* For Safari */
+	background-color: rgba(255, 255, 255, 0.05); /* Optional glassy tint */
+	border: 2px solid #c2a98d;
+	box-shadow:
+	0 0 25px rgba(255, 250, 240, 0.6),
+	inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-pic-container::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	backdrop-filter: blur(8px); /* 💡 This applies the blur */
+	background-color: rgba(255, 255, 255, 0.05); /* Optional subtle tint */
+	z-index: 1;
+}
+
+.profile-pic {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 0px solid #c2a98d;
+	box-shadow:
+	0 0 25px rgba(255, 250, 240, 0.6),
+	inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.header-content {
+	animation: fade-out linear;
+	animation-timeline: view();
+	animation-range: exit -150px;
+	/*border: 2px yellow solid;*/
+}
+
+@keyframes fade-out{
+	to { opacity: 0; }
+}
+
+@keyframes header-image-animation {
+	25% { opacity: 1; }
+	85%, 100% { opacity: 0; scale: 3;}
+}
+/*Landing Page image animation++ END*/
+
+/*Image animation START*/
+@media (prefers-reduced-motion: no-preference) {
+	img {
+		scale: .8; opacity: 0;
+		height: 250px;
+		width: 250px;
+		animation: fade-in linear forwards;
+		animation-timeline: view();
+		animation-range: entry 100px;
+	}
+
+	@keyframes fade-in {
+
+		to { scale: 1; opacity: 1; }
+	}
+}
+/*Image animation END*/
+
+/*Projects carousel START*/
+#carouselExampleCaptions {
+	max-width: 1000px;
+	height: 650px; /* fixed height */
+	margin: 0 auto;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+	border: 2px solid #f8f5f2;
+	box-shadow:
+	0 0 25px rgba(255, 250, 240, 0.6),
+	inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-inner,
+.carousel-item {
+	height: 100%; /* full height of the carousel */
+}
+
+.carousel-item img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain; /* fits image inside, no cropping */
+	background-image: url("./images/wood/6.jpg"); /* optional: adds a bg to fill the gap */
+}
+
+/* Caption box */
+.custom-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	background-image: url("./images/wood/6.jpg");
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	color: white;
+	text-align: center;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+/*Projects carousel END*/
+
+/*Certifications START*/
+.custom-caption-cert {
+	background-image: url(./images/wood/7.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 0.5px solid #f8f5f2;
+	border-radius: 10%;
+	box-shadow:
+	0 0 25px rgba(255, 250, 240, 0.6),
+	inset 0 0 10px rgba(0, 0, 0, 0.3);
+
+	padding: 30px;
+	color: white;
+	text-align: center;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+
+	min-height: 200px;         /* make all boxes same height */
+	width: 90%;               /* full width or set a fixed width */
+	box-sizing: border-box;    /* includes padding in width/height */
+	display: flex;             /* centers content */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cert-img-container {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-img {
+  object-fit: contain;
+  max-height: 100%;
+  max-width: 100%;
+}
+/*Certifications END*/
+
+/*Tools Section START*/
+/* horizontal scroll animation START */
+/* Main scroller container */
+.scroller {
+	height: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	width: 80%;
+	margin: 2rem auto;
+	background: transparent;
+	padding: 1rem 0;
+	position: relative;
+
+	/* Mask for smooth fading edges */
+	-webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+	mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+/* Inner scrolling container */
+.scroller_inner {
+	display: flex;
+	gap: 5rem;
+	width: max-content;
+	animation: scroll-left 360s linear infinite;
+}
+
+/* Reverse direction for right scroll */
+.scroller[data-direction="right"] .scroller_inner {
+	animation: scroll-right 360s linear infinite;
+}
+
+/* Leftward scroll animation */
+@keyframes scroll-left {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+
+/* Rightward scroll animation */
+@keyframes scroll-right {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(50%); }
+}
+
+/* Logo images */
+.scroller_inner img {
+	height: 100px;
+	width: auto;
+	object-fit: contain;
+	background: transparent;
+}
+
+/* Smaller logos on smaller screens */
+@media (max-width: 768px) {
+	.scroller {
+		width: 95%; /* Adjust width for smaller screens */
+	}
+
+	.scroller_inner img {
+		height: 60px; /* Adjust image size for smaller screens */
+	}
+}
+
+/*tools title and items*/
+.tool-boxes {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1rem;
+
+	max-width: calc((120px + 1rem) * 6); /* 6 items wide */
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tool-item {
+	border: 2px solid #c2a98d;
+	width: 120px;
+	height: 65px;
+	display: flex; /* Makes content alignable */
+	align-items: center; /* Vertically center */
+	justify-content: center; /* Horizontally center */
+	text-align: center;
+	padding: 1rem;
+	margin: 0.5rem;
+	border-radius: 10px;
+	font-weight: bold;
+	background-image: url('./images/cafe/2.jpg'); /* Optional */
+	background-size: cover;
+	background-position: center-top;
+	background-repeat: no-repeat;
+	box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+	transition: transform 0.2s ease;
+}
+
+
+.tool-item:hover {
+	transform: translateY(-3px);
+	opacity: 0.9;
+}
+/* horizontal scroll animation END */
+/*Tool Section END*/
+
+/*Contacts Section START*/
+#contact {
+	width: 100%;
+  max-width: 950px;
+  height: auto;
+
+  background-image: url('images/cafe/9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  border-radius: 20px; /* Smooth rounded corners */
+  overflow: hidden;
+  box-shadow:
+    0 0 25px rgba(255, 250, 240, 0.6),
+    inset 0 0 10px rgba(0, 0, 0, 0.3); /* Outer + inner shadow */
+}
+
+/* Optional overlay for readability */
+#contact::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5); /* Adjust for darker/lighter overlay */
+	z-index: -1;
+}
+
+.btn-cafe-custom {
+  color: white;
+  border: 2px solid #c2a98d;
+  border-radius: 10%;
+  background-color: transparent;
+  padding: 0.75rem 2rem; /* Increased padding for larger button */
+  transition: all 0.3s ease;
+  font-size: inherit; /* Keep text size the same */
+}
+
+.btn-cafe-custom:hover {
+  background-color: #c2a98d;
+  color: #3e2723;
+}
+
+.social-links a i {
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover i {
+  transform: scale(1.2);
+  color: #f5c16c; /* optional hover color */
+}
+/*Contacts Section END*/
+
+/*Footer*/
+.site-footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                    url('./images/wood/12.jpg');
+  background-size: cover;
+  background-position: center;
+  border-top: 1px solid #c2a98d;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Georgia', serif;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 1rem;
+  color: #f8f5f2;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-link {
+  color: #f8f5f2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #d2b48c; /* a warm brown/gold hover color */
+}
